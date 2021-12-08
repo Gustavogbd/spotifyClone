@@ -1,7 +1,7 @@
 import SpotifyWebApi from "spotify-web-api-node";
 
 const scopes = [
-    "user-read-email",
+    //"user-read-email",
     "playlist-read-private",
     "playlist-read-collaborative",
     "user-read-email",
@@ -17,7 +17,7 @@ const scopes = [
     "user-follow-read",
 ].join(',');
 const params = {
-    scope = scopes,
+    scope : scopes,
 };
 const queryParamString = new URLSearchParams(params).toString();
 const LOGIN_URL = "https://accounts.spotify.com/authorize?" + queryParamString.toString();
