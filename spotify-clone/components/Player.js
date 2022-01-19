@@ -20,7 +20,6 @@ function Player() {
     const fetchCurrentSong = () => {
         if (!songInfo) {
             spotifyApi.getMyCurrentPlayingTrack().then((data) => {
-                console.log("Tocando agora: ", data.body?.item);
                 setCurrentIdTrack(data.body?.item?.id);
 
                 spotifyApi.getMyCurrentPlaybackState().then((data) => {
@@ -50,7 +49,7 @@ function Player() {
             fetchCurrentSong();
             setVolume(50);
         }
-    }, [currentTrackIdState, spotifyApi, session])
+    }, [currentTrackId, spotifyApi, session])
 
     useEffect(() => {
         if (volume > 0 && volume < 100) {
